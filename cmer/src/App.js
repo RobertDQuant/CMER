@@ -57,19 +57,15 @@ class App extends Component {
     return (
 
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        
-        <Player playlist={this.state.playlist}/>
+        {//<div className="App-header">
+          //<img src={logo} className="App-logo" alt="logo" />
+          //<h2>Welcome to React</h2>
+              // </div>}
+        }
         <Nav/>
+        <Player playlist={this.state.playlist}/>
+        
         <Footer />
-
-      <div className="App"> 
-      <Nav/>
-      <Footer />
-
       </div>
     );
   }
