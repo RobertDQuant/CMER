@@ -1,14 +1,13 @@
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import Nav from './components/Navigation';
-// import Player
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from 'react-router-dom'
-// import Footer from './components/Footer';
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Nav from './components/Navigation';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import Footer from './components/Footer';
 
 
 // class App extends Component {
@@ -24,9 +23,7 @@
 // }
 
 // export default App;
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 
 import Player from './components/Player';
 
@@ -65,7 +62,7 @@ class App extends Component {
         </div>
         
         <Player playlist={this.state.playlist}/>
-        <Nav />
+        <Nav/>
         <Footer />
       </div>
     );
