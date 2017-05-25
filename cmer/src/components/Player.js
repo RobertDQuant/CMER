@@ -31,7 +31,7 @@ class Player extends Component {
                <iframe className='player' src={this.state.src}>
                </iframe>
                <div className='songlist'>
-                    <Songlist playlist={this.props.playlist} onSongClick={this.onSongClick}/>
+                    <Songlist playlist={this.props.playlist} onSongClick={this.onSongClick} handleSongDelete={this.props.handleSongDelete}/>
                </div>
             </main>
         )

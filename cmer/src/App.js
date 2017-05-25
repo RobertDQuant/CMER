@@ -9,31 +9,16 @@ import {
   Link
 } from 'react-router-dom'
 import Footer from './components/Footer';
-
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-        
-//       <Nav/>
-//       <Footer />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
-
 import Player from './components/Player';
-
+import SongList from './components/SongList';
+import Song from './components/Song'
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       playlist: [],
     }
+    this.handleSongDelete=this.handleSongDelete.bind(this);
   }
   componentDidMount(){
     this.fetchAllPlaylist()
@@ -54,12 +39,26 @@ class App extends Component {
       })
   }
 
+  handleSongDelete(id) {
+    fetch(`https://warm-reef-44020.herokuapp.com/api/myplaylist/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        return response.json;
+      })
+      .then((responseJson) => {
+        if (responseJson.status === 200){
+          this.fetchAllPlaylist();
+        }
+      })
+  }
+
   render() {
     return (
 
       <div className="App">
         <Nav/>
-        <Player playlist={this.state.playlist}/>
+        <Player playlist={this.state.playlist} handleSongDelete={this.handleSongDelete}/>
         <Footer />
       </div>
     );
