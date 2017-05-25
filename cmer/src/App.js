@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Navigation';
+import Hero from './components/Hero';
 import {
   BrowserRouter as Router,
   Route,
@@ -57,6 +58,7 @@ class App extends Component {
     return (
 
       <div className="App">
+
         {//<div className="App-header">
           //<img src={logo} className="App-logo" alt="logo" />
           //<h2>Welcome to React</h2>
@@ -65,6 +67,10 @@ class App extends Component {
         <Nav/>
         <Player playlist={this.state.playlist}/>
         
+
+        <Nav />
+        <Player playlist={this.state.playlist} />
+
         <Footer />
       </div>
     );
