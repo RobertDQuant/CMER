@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Navigation';
 import Hero from './components/Hero';
+import SongList from './components/SongList';
 import {
   BrowserRouter as Router,
   Route,
@@ -33,7 +34,14 @@ class App extends Component {
     super(props);
     this.state = {
       playlist: [],
+      inputArtistValue: '',
+      inputSrcValue: '',
+      inputSongValue: '',
     }
+    this.handleInputArtistChange = this.handleInputArtistChange.bind(this);
+    this.handleInputSrcChange = this.handleInputSrcChange.bind(this);
+    this.handleInputSongChange = this.handleInputSongChange.bind(this);
+    this.handleSongEdit = this.handleSongEdit.bind(this);
   }
   componentDidMount(){
     this.fetchAllPlaylist()
@@ -52,7 +60,37 @@ class App extends Component {
           }
         })
       })
-  }
+    }
+    handleInputArtistChange(event) {
+      this.setState({inputArtistValue: event.target.value});
+    }
+
+    handleInputSrcChange(event) {
+        this.setState({inputSrcValue: event.target.value});
+    }
+
+    handleInputSongChange(event) {
+        this.setState({inputSongValue: event.target.value});
+    }
+    
+    handleSongEdit(event) {
+      event.preventDefault();
+
+      fetch(`https://warm-reef-44020.herokuapp.com/api/myplaylist/${event.target.id.value}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          artist: event.target.artist.value,
+          src: event.target.src.value,
+          song: event.target.song.value
+        }),
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          this.fetchAllPlaylist();
+        }
+      })
+    }
 
   render() {
     return (
@@ -60,6 +98,9 @@ class App extends Component {
       <div className="App">
         <Nav/>
         <Player playlist={this.state.playlist}/>
+        <SongList
+          handleSongEdit={this.handleSongEdit}
+        />
         <Footer />
       </div>
     );
