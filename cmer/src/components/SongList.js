@@ -7,7 +7,7 @@ class Songlist extends Component {
             <ul>
                 {this.props.playlist.map((playlist) => {
                     return (
-                        <Song key={playlist.id} playlist={playlist}/>
+                        <Song key={playlist.id} playlist={playlist} onSongClick={this.props.onSongClick}/>
                     )
                 })}
             </ul>

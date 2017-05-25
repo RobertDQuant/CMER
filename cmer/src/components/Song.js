@@ -6,7 +6,7 @@ class Song extends Component {
     render() {
         return(
             <li className='songLi'>
-                <h2>{this.props.playlist.song}</h2>
+                <button onClick={this.props.onSongClick}>{this.props.playlist.song}</button>
                 <p>{this.props.playlist.artist}</p>
             </li>
         )
