@@ -34,6 +34,9 @@ footer {
     text-decoration: none;
     background-color: #222222;
     box-shadow: 10px 10px 5px #888888;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 #hero {
