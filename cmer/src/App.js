@@ -66,11 +66,6 @@ class App extends Component {
         }
         <Nav/>
         <Player playlist={this.state.playlist}/>
-        
-
-        <Nav />
-        <Player playlist={this.state.playlist} />
-
         <Footer />
       </div>
     );
