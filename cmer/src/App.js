@@ -10,25 +10,9 @@ import {
   Link
 } from 'react-router-dom'
 import Footer from './components/Footer';
-
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-        
-//       <Nav/>
-//       <Footer />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
-
 import Player from './components/Player';
-
+import SongList from './components/SongList';
+import Song from './components/Song'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -38,10 +22,14 @@ class App extends Component {
       inputSrcValue: '',
       inputSongValue: '',
     }
+
     this.handleInputArtistChange = this.handleInputArtistChange.bind(this);
     this.handleInputSrcChange = this.handleInputSrcChange.bind(this);
     this.handleInputSongChange = this.handleInputSongChange.bind(this);
     this.handleSongEdit = this.handleSongEdit.bind(this);
+
+    this.handleSongDelete=this.handleSongDelete.bind(this);
+
   }
   componentDidMount(){
     this.fetchAllPlaylist()
@@ -92,15 +80,33 @@ class App extends Component {
       })
     }
 
+  handleSongDelete(id) {
+    fetch(`https://warm-reef-44020.herokuapp.com/api/myplaylist/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        return response.json;
+      })
+      .then((responseJson) => {
+        if (responseJson.status === 200){
+          this.fetchAllPlaylist();
+        }
+      })
+  }
+
   render() {
     return (
 
       <div className="App">
         <Nav/>
+
         <Player playlist={this.state.playlist}/>
         <SongList
           handleSongEdit={this.handleSongEdit}
         />
+
+        <Player playlist={this.state.playlist} handleSongDelete={this.handleSongDelete}/>
+
         <Footer />
       </div>
     );
