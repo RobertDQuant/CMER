@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem,  } from 'react-bootstrap';
 
 class Navigation extends Component {
@@ -8,15 +12,15 @@ class Navigation extends Component {
         <Navbar inverse collapseOnSelect className="Navbar">
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">CMER Playlist</a>
+              <Link to="/">CMER Playlist</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav className="Nav">
-            <NavItem eventKey={1} href="#">Home</NavItem>
+            <NavItem eventKey={1}><Link to="/play">Play</Link></NavItem>
             <NavItem eventKey={2} href="#About">About</NavItem>
-            <NavItem eventKey={3} href="#">Contact</NavItem>
+            <NavItem eventKey={3} href="#Contact">Contact</NavItem>
             <NavDropdown eventKey={4} title="More" id="nav-dropdown">
               <MenuItem eventKey={4.1}>Profile</MenuItem>
               <MenuItem eventKey={4.2}>Settings</MenuItem>

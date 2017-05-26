@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {logo} from './logo.svg';
 import './App.css';
-import Nav from './components/Navigation';
-import Hero from './components/Hero';
 import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
-import Footer from './components/Footer';
-import Player from './components/Player';
-import SongList from './components/SongList';
-import Song from './components/Song'
+} from 'react-router-dom';
+import {Landing} from './components/Landing';
+import {Play} from './components/Play';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -57,9 +53,12 @@ class App extends Component {
     return (
 
       <div className="App">
-        <Nav/>
-        <Player playlist={this.state.playlist} handleSongDelete={this.handleSongDelete}/>
-        <Footer />
+        <Router>
+          <main>
+            <Route exact path="/" component={Landing} />
+            <Route path="/play" component={Play} />
+          </main>
+      </Router>
       </div>
     );
   }
