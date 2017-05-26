@@ -6,8 +6,8 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import {Landing} from './components/Landing';
-import {Play} from './components/Play';
+import Landing from './components/Landing';
+import Play from './components/Play';
 class App extends Component {
   constructor(props) {
     super(props);
