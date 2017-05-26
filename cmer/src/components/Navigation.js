@@ -19,8 +19,8 @@ class Navigation extends Component {
         <Navbar.Collapse>
           <Nav className="Nav">
             <NavItem eventKey={1}><Link to="/play">Play</Link></NavItem>
-            <NavItem eventKey={2} href="#About">About</NavItem>
-            <NavItem eventKey={3} href="#Contact">Contact</NavItem>
+            <NavItem eventKey={2}><Link to="/about">About</Link></NavItem>
+            <NavItem eventKey={3}><Link to="/about">Contact</Link></NavItem>
             <NavDropdown eventKey={4} title="More" id="nav-dropdown">
               <MenuItem eventKey={4.1}>Profile</MenuItem>
               <MenuItem eventKey={4.2}>Settings</MenuItem>

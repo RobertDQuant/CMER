@@ -10,8 +10,6 @@ class Landing extends Component {
     return (
       <div id="Landing">
         <Nav />
-        <Hero />
-        <hr/>
         <About />
         <Footer />
       </div>

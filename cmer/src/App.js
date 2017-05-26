@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import Landing from './components/Landing';
 import Play from './components/Play';
+import Abt from './components/abt'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +59,7 @@ class App extends Component {
           <main>
             <Route exact path="/" component={Landing} />
             <Route path="/play" component={Play} />
+            <Route path="/about" component={Abt} />
           </main>
       </Router>
       </div>
