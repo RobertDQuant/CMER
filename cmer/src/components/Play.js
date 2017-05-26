@@ -1,20 +1,11 @@
-import React, { Component } from 'react';
-import {logo} from './logo.svg';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
-import Footer from './components/Footer';
-import Player from './components/Player';
-import SongList from './components/SongList';
-import Song from './components/Song';
-import Landing from './components/Landing';
-import Play from './components/Play';
-import Abt from './components/abt';
+import React, {Component} from 'react';
+import Nav from './Navigation';
+import Player from './Player';
+import Footer from './Footer';
+import '../App.css';
+import App from '../App.js'
 
-class App extends Component {
+class Play extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,20 +46,16 @@ class App extends Component {
       })
   }
 
-  render() {
-    return (
 
-      <div className="App">
-        <Router>
-          <main>
-            <Route exact path="/" component={Landing} />
-            <Route path="/play" component={Play} />
-            <Route path="/about" component={Abt} />
-          </main>
-      </Router>
-      </div>
-    );
-  }
+    render() {
+        return(
+        <div>
+          <Nav/>
+          <Player playlist={this.state.playlist} handleSongDelete={this.handleSongDelete}/>
+          <Footer />
+        </div>
+        )
+    }
 }
 
-export default App;
+export default Play;
